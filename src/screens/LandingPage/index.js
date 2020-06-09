@@ -31,7 +31,7 @@ export default class LandingPage extends Component {
    componentDidMount() {
       const tasks = fire.database().ref('tasks/' + this.context.user.uid);
       this.taskListner = tasks.orderByChild('isTimer').equalTo(true).on('value', (res) => {
-         this.state.liveTasks.forEach(t => t.timer.stop());
+         this.state.liveTasks.forEach(t => t.timer && t.timer.stop());
          if (res.val()) {
             this.setState({
                liveTasks: Object.values(res.val())
@@ -47,7 +47,7 @@ export default class LandingPage extends Component {
             console.log(this.state.liveTasks);
          } else {
             this.setState({
-               tasks: []
+               liveTasks: []
             });
          }
       });
@@ -66,7 +66,7 @@ export default class LandingPage extends Component {
       const tasks = fire.database().ref('tasks/' + this.context.user.uid);
       // tasks.orderByChild('').off('value');
       tasks.orderByChild('isTimer').off('value');
-      this.state.liveTasks.forEach(t => t.timer.stop());
+      this.state.liveTasks.forEach(t => t.timer && t.timer.stop());
    }
    render() {
       const { user = {} } = this.context;
@@ -107,7 +107,7 @@ export default class LandingPage extends Component {
                                           <small>hrs</small>
                                        </h2>
                                     )}
-                                    <button type='submit'>Complete</button>
+                                    <button type='button' onClick={(e) => this.completeTask(t)}>Complete</button>
                                  </div>
                               </div>
                            </li>

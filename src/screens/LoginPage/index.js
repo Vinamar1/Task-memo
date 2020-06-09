@@ -49,6 +49,9 @@ export default class LoginPage extends Component {
    render() {
       if (this.state.error) {
          alert(this.state.error);
+         setTimeout(() => {
+            this.setState({ error: null });
+         });
       }
 
       return (
@@ -68,7 +71,7 @@ export default class LoginPage extends Component {
                   <input className='form-label-css' id='textPassword'
                         name='password'
                         onChange={this.handleChange}
-                        type="text" />
+                        type="password" />
                   </label>
                   <button className='form-button-css' id='btnSignUp' type='submit'>Sign In</button>
                   <Link className='signup-css' id='btnSignUp' type='submit' to='/register'>Sign Up</Link>

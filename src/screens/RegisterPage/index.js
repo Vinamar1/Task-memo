@@ -74,24 +74,24 @@ export default class LoginPage extends Component {
                   <label className='from-label-css'>
                      Name :
                   <input className='form-label-css' onChange={this.handleChange}
-                        type="text" name='name'
+                        type="text" name='name' required
                      />
                   </label>
                   <label className='from-label-css'>
                      Email :
                   <input className='form-label-css' onChange={this.handleChange}
-                        type="text" name='email'
+                        type="text" name='email' required
                      />
                   </label>
                   <label className='from-label-css'>
                      User Name :
                   <input className='form-label-css' onChange={this.handleChange}
-                        type="text" name='username'
+                        type="text" name='username' required
                      />
                   </label>
                   <label className='from-label-css'>
                      Password :
-                  <input className='form-label-css' onChange={this.handleChange} type="text" name="password" />
+                  <input className='form-label-css' onChange={this.handleChange} type="password" name="password" required />
                   </label>
                   <button id='btnSignUp' type='submit'>Sign Up</button>
                   <Link className='signup-css' id='btnSignUp' type='submit' to='/login'>Sign In</Link>
