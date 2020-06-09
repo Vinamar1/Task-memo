@@ -1,86 +1,80 @@
 import React, { Component } from 'react';
-import { FaBeer } from 'react-icons/fa';
 import {
    BrowserRouter as Router,
    Switch,
    Route,
-   Link
+   Link,
+   Redirect
 } from "react-router-dom";
+import firebase from 'firebase'
 import fire from '../../config/fire';
 
 export default class LoginPage extends Component {
+   state = {
+      error: undefined
+   }
 
    constructor(props) {
       super(props);
-      this.login = this.login.bind(this);
-      this.signup = this.signup.bind(this);
-      this.handleChange = this.handleChange.bind(this)
+      this.handleChange = this.handleChange.bind(this);
       this.state = {
          email: '',
-         password: ''
+         password: '',
       }
    }
 
    handleChange(e) {
       this.setState({
-         [e.target.name]: [e.target.value]
+         [e.target.name]: e.target.value
       })
    }
 
    login(e) {
       e.preventDefault();
-      fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-         console.log(u)
-      }).catch((err) => {
-         console.log(err);
-      })
+      this.setState({ error: false })
+      fire.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
+         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+            // this.setState({ logged: true });
+            window.location.replace('/home');
+
+         }).catch((err) => {
+            this.setState({ error: err.message });
+         })
+      });
+
    }
 
-   signup(e) {
-      e.preventDefault();
-      fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-         console.log(u)
-      }).catch((err) => {
-         console.log(err);
-      })
-   }
 
 
    render() {
-      console.log(this.props.links)
+      if (this.state.error) {
+         alert(this.state.error);
+      }
+
       return (
          <div>
-            <div id='login_div'>
-               <h1>Member Login</h1>
-               <form>
-
-                  <label>
+            <div className='login-div-css' id='login_div'>
+               <h1 className='form-header-css'> Login</h1>
+               <form className='vr full' onSubmit={this.login.bind(this)}>
+                  <label className='from-label-css'>
                      User Name:
-                  <input id='textEmail'
+                  <input className='form-label-css' id='textEmail'
                         name='email'
                         onChange={this.handleChange}
                         type="text" />
                   </label>
-
-                  <label>
+                  <label className='from-label-css'>
                      Password :
-                  <input id='textPassword'
+                  <input className='form-label-css' id='textPassword'
                         name='password'
                         onChange={this.handleChange}
                         type="text" />
                   </label>
-
-                  <input id='btnlogin'
-                     onClick={this.login}
-                     type="submit"
-                     value="Log in" />
-
+                  <button className='form-button-css' id='btnSignUp' type='submit'>Sign In</button>
+                  <Link className='signup-css' id='btnSignUp' type='submit' to='/register'>Sign Up</Link>
                </form>
-               <p> <Link id='btnSignUp' onClick={this.signup} to='/register'>Sign Up</Link></p>
-               <FaBeer />
             </div>
          </div>
-
       )
    }
 }
