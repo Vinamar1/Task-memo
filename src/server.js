@@ -40,7 +40,7 @@ app.get('*', (req, res) => {
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>React App</title>
+    <title>Title Memo</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

@@ -1,0 +1,203 @@
+$primary: #1d6be0;
+$secondry: #a09b9b;
+$p-sm: 0.25rem 0.75rem;
+$p-lg: 0.5rem 1rem;
+$dark-hover-color: rgba(0, 0, 0, 0.03);
+$light: #fff;
+* {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: 1px dashed $secondry;
+  outline: 1px dashed -webkit-focus-ring-color;
+  outline-offset: 2px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e5e5e5;
+  color: #333;
+  line-height: 1.5;
+  font-family: "IBM Plex Sans Condensed", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+a {
+  display: inline-block;
+  color: $primary;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+input {
+  padding: $p-lg;
+  border: none;
+  border-bottom: 1px solid lighten($color: $primary, $amount: 0.8);
+  background-color: $light;
+}
+button {
+  display: inline-block;
+  padding: $p-lg;
+  border: 1px solid $dark-hover-color;
+  background-color: $primary;
+  color: $light;
+  &.sm {
+    padding: $p-sm;
+  }
+}
+nav {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-bottom-color: #f1f1f1;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+table {
+  width: 100%;
+  border: 1px solid $secondry;
+  border-collapse: collapse;
+  thead {
+    border-bottom: 2px solid $secondry;
+  }
+  th {
+    padding: $p-sm;
+    text-align: center;
+  }
+  td {
+    padding: $p-lg;
+    position: relative;
+    text-align: center;
+    &::after {
+      display: inline-block;
+      content: "";
+      width: 1px;
+      height: calc(100% - 4px);
+      vertical-align: middle;
+      border-right: 1px solid #a09b9b;
+      position: absolute;
+      right: 0;
+      top: 2px;
+    }
+  }
+  td:not(:last-child) {
+    border-right-color: $secondry;
+  }
+  tr:not(:last-child) {
+    border-bottom: 1px solid $secondry;
+  }
+}
+
+form.vr {
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-bottom: 0.5rem;
+    max-width: 250px;
+    display: inline-block;
+  }
+  input {
+    margin-bottom: 1rem;
+    max-width: 250px;
+  }
+  &.full {
+    label,
+    input {
+      max-width: 100%;
+    }
+  }
+}
+dialog {
+  z-index: 99;
+  box-shadow: 3px 6px 12px 2px #0000002e;
+  padding: 0;
+  border: none;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 99;
+}
+.container {
+  max-width: 1024px;
+  margin: auto;
+}
+.card {
+  background-color: $light;
+  display: flex;
+  flex-direction: column;
+
+  .header,
+  .body {
+    padding: 1rem;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    > * {
+      margin-bottom: 0;
+    }
+  }
+  & + & {
+    margin-bottom: 1em;
+  }
+}
+.header {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.close {
+  background-color: transparent;
+  font-size: 1.5rem;
+  color: #333;
+  padding: 0.25rem 0.75rem;
+  border: none;
+}
+
+
+/* loginpage css starts here  */
+
+.login-div-css {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.form-label-css {
+  width: 100%;
+  margin: 8px 0;
+}
+
+
+.signup-css {
+  margin-top: 20px;
+  text-align: end;
+}
+
+.form-header-css {
+  text-align: center;
+}
+
+/* loginpage css ends here */
