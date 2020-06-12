@@ -3,26 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase": "^7.15.0",
-    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-router": "^3.2.6",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "request": "2.79.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ssr": "webpack -p && npx babel-node src/server.js",
+    "ssr": "npx babel-node src/server.js",
     "webpack": "webpack -wd"
   },
   "eslintConfig": {
@@ -53,11 +49,19 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/register": "^7.10.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "babel-loader": "^8.1.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react-app": "^9.1.2",
+    "css-loader": "^3.5.3",
+    "css-modules-require-hook": "^4.2.3",
     "ignore-styles": "^5.0.1",
-    "webpack": "^4.42.0",
+    "node-sass": "^4.14.1",
+    "react-scripts": "3.4.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
     "webpack-cli": "^3.3.11"
   }
 }

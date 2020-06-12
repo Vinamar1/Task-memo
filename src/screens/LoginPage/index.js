@@ -60,7 +60,7 @@ export default class LoginPage extends Component {
                <h1 className='form-header-css'> Login</h1>
                <form className='vr full' onSubmit={this.login.bind(this)}>
                   <label className='from-label-css'>
-                     User Name:
+                     Email :
                   <input className='form-label-css' id='textEmail'
                         name='email'
                         onChange={this.handleChange}

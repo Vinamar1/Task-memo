@@ -1,10 +1,10 @@
+
 import express from 'express';
 import cors from 'cors';
 import ReactDOMServer from 'react-dom/server';
 import App from './App.js';
 import React from 'react';
 import { StaticRouter } from 'react-router-dom';
-
 const app = express()
 
 app.use(cors())
