@@ -19,7 +19,6 @@ export class Timer {
   }
   start(callback) {
     this.calcTime();
-
     Promise.resolve().then(() => {
       this.id = setInterval(() => {
         this.calcTime();

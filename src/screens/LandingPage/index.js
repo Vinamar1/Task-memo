@@ -86,8 +86,8 @@ export default class LandingPage extends Component {
                   editTask &&
                   <CreateTask close={() => this.setState({ editTask: false })} />
                }
-               <h3 className="header">Live Tasks <div className="live"></div></h3>
-               <ul className="active-tasks">
+               {/* <h3 className="header">Live Tasks <div className="live"></div></h3> */}
+               {/* <ul className="active-tasks">
                   {
                      liveTasks.map((t, i) => {
                         return (
@@ -114,7 +114,7 @@ export default class LandingPage extends Component {
                      })
                   }
 
-               </ul>
+               </ul> */}
 
 
                {/* this.userId === value.user.uid && */}

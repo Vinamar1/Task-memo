@@ -7,7 +7,6 @@ import {
    BrowserRouter as Router, Switch, Route, Link, Redirect
 } from "react-router-dom";
 import fire from '../src/config/fire';
-
 import { UserContext } from "./config/context";
 
 export class App extends Component {
@@ -18,14 +17,14 @@ export class App extends Component {
       user: null,
       uid: null,
    };
+
    componentDidMount() {
       this.userSubs = fire.auth().onAuthStateChanged((user, username, uid) => {
-         // console.log('set user', user);
+         console.log('set user', user);
          if (user) {
             const ref = fire.database().ref('/users/' + user.uid);
             ref.once('value').then(res => {
-               // console.log('Vinamarkhar', res);
-
+               console.log('check response of user', res);
                const newuser = {
                   ...user, ...username, ...res.val(),
                };
@@ -52,7 +51,6 @@ export class App extends Component {
       return (
          <div className="App">
             <div className="container">
-
                <UserContext.Provider value={{
                   user: this.state.user
                }} >

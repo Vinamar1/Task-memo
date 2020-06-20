@@ -22,6 +22,46 @@ export class Task {
    }
 }
 export default class createTask extends Component {
+
+   // calenderfunction() {
+   //    var event = {
+   //       'summary': 'Google I/O 2015',
+   //       'location': '800 Howard St., San Francisco, CA 94103',
+   //       'description': 'A chance to hear more about Google\'s developer products.',
+   //       'start': {
+   //          'dateTime': '2015-05-28T09:00:00-07:00',
+   //          'timeZone': 'America/Los_Angeles'
+   //       },
+   //       'end': {
+   //          'dateTime': '2015-05-28T17:00:00-07:00',
+   //          'timeZone': 'America/Los_Angeles'
+   //       },
+   //       'recurrence': [
+   //          'RRULE:FREQ=DAILY;COUNT=2'
+   //       ],
+   //       'attendees': [
+   //          { 'email': 'lpage@example.com' },
+   //          { 'email': 'sbrin@example.com' }
+   //       ],
+   //       'reminders': {
+   //          'useDefault': false,
+   //          'overrides': [
+   //             { 'method': 'email', 'minutes': 24 * 60 },
+   //             { 'method': 'popup', 'minutes': 10 }
+   //          ]
+   //       }
+   //    };
+
+   //    var request = gapi.client.calendar.events.insert({
+   //       'calendarId': 'primary',
+   //       'resource': event
+   //    });
+
+   //    request.execute(function (event) {
+   //       appendPre('Event created: ' + event.htmlLink);
+   //    });
+   // }
+
    static contextType = UserContext;
 
    ref = React.createRef();
@@ -35,6 +75,8 @@ export default class createTask extends Component {
          // userId: undefined,
       },
    }
+
+
 
    createTask(e) {
       e.preventDefault();
@@ -77,9 +119,11 @@ export default class createTask extends Component {
          }
       })
    }
+
    componentDidMount() {
       this.ref.current.showModal();
    }
+
    render() {
       const { form } = this.state;
       return (
@@ -90,15 +134,17 @@ export default class createTask extends Component {
                   <button type="button" className="close" onClick={(e) => this.close(e)}>&times;</button>
                </div>
                <div className="body">
-                  <form className="vr full" onSubmit={(e) => this.createTask(e)} onChange={(e) => this.handleChange(e)}>
+                  <form className="vr full" onSubmit={(e) => this.createTask(e)
+                     // this.googleCalender()
+                     } onChange={(e) => this.handleChange(e)}>
                      <label>
-                        Task Name:
+                        Topic:
                      </label>
                      <input type="text" name='taskname'
                         defaultValue={form.taskname}
                         required />
                      <label>
-                        Project Name:
+                        Description:
                      </label>
                      <input type="text" name='projectname' defaultValue={form.projectname} required />
 
@@ -111,10 +157,11 @@ export default class createTask extends Component {
 
                      <input type='datetime-local' name='sDate' defaultValue={form.sDate} id='sDate' required />
 
-                     <label htmlFor="isTimer">
+                     {/* <label htmlFor="isTimer">
                         <input type='checkbox' name='isTimer' id='isTimer' defaultValue={form.isTimer} />
                         Start Timer
-                      </label>
+                      </label> */}
+                     {/* <button type='button' className="sm" style={{ }} onClick={(e) => { this.setNow('sDate') }}>Google Calender</button> */}
                      {
                         !form.isTimer && (
                            <React.Fragment>
@@ -125,7 +172,9 @@ export default class createTask extends Component {
                            </React.Fragment>
                         )
                      }
-                     <button type='submit'>Create</button>
+                     <button type='submit' 
+                     // onClick={this.googleCalender()}
+                     >Schedule</button>
                   </form>
                </div>
             </div>

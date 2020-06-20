@@ -22,8 +22,6 @@ export default class TaskList extends Component {
     selectedDate: this.todaysDate,
   }
 
-
-
   getTaskByDate(isToday) {
     const tasks = fire.database().ref('tasks/' + this.context.user.uid);
     const d = new Date(this.state.selectedDate).setHours(0, 0, 0, 0);
@@ -69,7 +67,6 @@ export default class TaskList extends Component {
     // this.taskListner
   }
 
-
   componentDidMount() {
     this.getTaskByDate(true);
   }
@@ -92,12 +89,12 @@ export default class TaskList extends Component {
     return (
       <div className="card">
         <div className="header">
-          <h3>Your Tasks</h3>
+          <h3>Your Slots</h3>
           {
             !isAddingTask &&
             <button type="button" className="add-task" onClick={(e) => {
               addTask(e);
-            }}>Add Task</button>
+            }}>Add Event</button>
           }
           <form className="filters" onChange={(e) => this.filterTasks(e)} >
             <input type='date' defaultValue={selectedDate} required />
@@ -107,12 +104,12 @@ export default class TaskList extends Component {
           <table>
             <thead>
               <tr>
-                <th>Task Name</th>
-                <th>Project</th>
-                <th>Started On</th>
+                <th>Topic </th>
+                <th>Description</th>
+                <th>Start At </th>
                 <th>Completed On / Will end On</th>
                 <th>Created On</th>
-                <th>Status</th>
+                {/* <th>Status</th> */}
                 <th>Actions</th>
               </tr>
             </thead>
@@ -128,7 +125,7 @@ export default class TaskList extends Component {
                       <td>{new Date(t.sDate).toLocaleString()}</td>
                       <td>{t.isTimer ? 'NA' : new Date(t.eDate).toLocaleString()}</td>
                       <td>{new Date(t.createdOn).toLocaleDateString()}</td>
-                      <td>
+                      {/* <td>
                         {
                           status === 'active' &&
                           (<React.Fragment>
@@ -143,14 +140,14 @@ export default class TaskList extends Component {
                           status === 'completed' && 'Completed'
 
                         }
-                      </td>
+                      </td> */}
                       <td>
                         {
                           status === 'active' ?
                             (<button type="button" className="add-task sm" onClick={(e) => {
                               completeTask(t);
-                            }}>Complete</button>)
-                            : '-'
+                            }}>End Meeting </button>)
+                            : 'Meeting Over'
                         }
                         {/* <button type="button" className="add-task sm" onClick={(e) => {
                           addTask(e);
