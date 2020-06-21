@@ -52,8 +52,8 @@ export default class createTask extends Component {
    //       }
    //    };
 
-   //    var request = gapi.client.calendar.events.insert({
-   //       'calendarId': 'primary',
+   //    var request = gapi.client.Event.events.insert({
+   //       'EventId': 'primary',
    //       'resource': event
    //    });
 
@@ -91,7 +91,7 @@ export default class createTask extends Component {
             alert('Adding a task failed. try Again');
             return;
          }
-         alert('Task Added Successfully');
+         alert('Event Added Successfully');
          e.target.reset();
          this.close(e);
       });
@@ -130,7 +130,7 @@ export default class createTask extends Component {
          <dialog ref={this.ref}>
             <div className="card create-task">
                <div className="header">
-                  <h3>Create a new task</h3>
+                  <h3>Create a new Event</h3>
                   <button type="button" className="close" onClick={(e) => this.close(e)}>&times;</button>
                </div>
                <div className="body">

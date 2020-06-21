@@ -89,7 +89,7 @@ export default class TaskList extends Component {
     return (
       <div className="card">
         <div className="header">
-          <h3>Your Slots</h3>
+          <h3>Your Event</h3>
           {
             !isAddingTask &&
             <button type="button" className="add-task" onClick={(e) => {
