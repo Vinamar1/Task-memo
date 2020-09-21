@@ -4,4 +4,10 @@
 
 - To start a Development server run  `npm start`
 - To build Production code with ssr run  `npm run ssr`
+
+
+![Register yourself](src/sc1.png)
+![Login](src/sc2.png)
+![Add your Event](src/sc3.png)
+![Event Listing](src/sc4.png)
  
